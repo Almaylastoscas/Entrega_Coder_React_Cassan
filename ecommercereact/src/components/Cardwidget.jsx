@@ -1,5 +1,6 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
+import { Link } from "react-router-dom";
 const CardWidget = () => {
   return (
     <a href="#" className="flex">
