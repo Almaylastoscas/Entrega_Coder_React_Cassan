@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItenList from "./ItenList";
 import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 const initialData = [
   {
@@ -8,7 +9,7 @@ const initialData = [
     categoria: "deporte",
     nombre: "Zapatilla Nike pro",
     precio: 5200,
-    img: "./img01.jpg",
+    img: "/img01.jpg",
     cantidad: 1,
   },
   {
@@ -16,7 +17,7 @@ const initialData = [
     categoria: "deporte",
     nombre: "Zapatilla Nike Static",
     precio: 9333,
-    img: "  ./img02.jpg",
+    img: "  /img02.jpg",
     cantidad: 1,
   },
   {
@@ -24,31 +25,31 @@ const initialData = [
     categoria: "deporte",
     nombre: "Zapatilla Nike XWM",
     precio: 4587,
-    img: " ./img03.jpg",
+    img: " /img03.jpg",
     cantidad: 1,
   },
   {
     id: 4,
-    Categoria: "urbana",
+    categoria: "urbana",
     nombre: "Zapatilla Nike pro Ultra",
     precio: 6792,
-    img: "./Nike.jpg",
+    img: "/img04.jpg",
     cantidad: 1,
   },
   {
     id: 5,
-    Categoria: "urbana",
+    categoria: "urbana",
     nombre: "Zapatilla Nike Dport",
     precio: 7980,
-    img: "./img05.jpg",
+    img: "/img05.jpg",
     cantidad: 1,
   },
   {
     id: 6,
-    Categoria: "urbana",
+    categoria: "urbana",
     nombre: "Zapatilla Nike pro",
     precio: 7390,
-    img: "./img06.jpg",
+    img: "/img06.jpg",
     cantidad: 1,
   },
   {
@@ -56,7 +57,7 @@ const initialData = [
     categoria: "vestir",
     nombre: "Zapatilla Nike Sport",
     precio: 8920,
-    img: "./img07.jpg",
+    img: "/img07.jpg",
     cantidad: 1,
   },
   {
@@ -64,7 +65,7 @@ const initialData = [
     categoria: "vestir",
     nombre: "Zapatilla Nike Sport max",
     precio: 3800,
-    img: "./img08.jpg",
+    img: "/img08.jpg",
     cantidad: 1,
   },
   {
@@ -72,7 +73,7 @@ const initialData = [
     categoria: "vestir",
     nombre: "Zapatilla Nike pro Future",
     precio: 5900,
-    img: "./img09.jpg",
+    img: "/img09.jpg",
     cantidad: 1,
   },
 ];
@@ -83,9 +84,11 @@ const promesa = new Promise((res, rej) => {
 });
 const ItensListContainer = ({ greeting }) => {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { name } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     setTimeout(() => {
       promesa.then((data) => {
         if (name) {
@@ -93,6 +96,7 @@ const ItensListContainer = ({ greeting }) => {
         } else {
           setProductos(data);
         }
+        setLoading(false);
       });
     }, 2000);
   }, [name]);
@@ -100,7 +104,7 @@ const ItensListContainer = ({ greeting }) => {
   return (
     <>
       <h1 className="text-2xl text-white bg-neutral-800 ">{greeting}</h1>
-      <ItenList productos={productos} />
+      {loading ? <Loading /> : <ItenList productos={productos} />}
     </>
   );
 };

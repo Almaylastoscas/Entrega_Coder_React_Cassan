@@ -1,21 +1,20 @@
 import React from "react";
 
 const ItemDetail = ({ producto }) => {
+  console.log("acaaaaaa", producto);
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">
-      <a href="#">
-        <img
-          className="p-8 rounded-t-lg"
-          src={producto.img}
-          alt="product image"
-        />
-      </a>
+      <img
+        className="p-8 rounded-t-lg"
+        src={producto.img}
+        alt="product imagen"
+      />
+
       <div className="px-5 pb-5">
-        <a href="#">
-          <h2 clasNames="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {producto.nombre}
-          </h2>
-        </a>
+        <h2 clasNames="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          {producto.nombre}
+        </h2>
+
         <h6 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
           {producto.descripcion}
         </h6>
@@ -79,7 +78,7 @@ const ItemDetail = ({ producto }) => {
             $ {producto.precio}
           </span>
           <a
-            href="#"
+            href="/"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Add to cart
