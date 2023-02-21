@@ -85,27 +85,24 @@ const promesa = new Promise((res, rej) => {
 });
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState([]);
+  const [producto, setProducto] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   console.log("Yo soy", id);
 
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
+      setLoading(true);
       promesa.then((data) => {
-        console.log("aca", data[1]);
-        setProducto(data.find((el) => el.id === id));
-        setLoading(false);
+        setProducto(data.find((el) => el.id === parseInt(id)));
       });
     }, 2000);
     setLoading(false);
   }, [id]);
-  console.log("YOOOOOO", producto);
 
   return (
     <div>
-      {loading && <Loading />}
+      {loading ? loading : <Loading />}
       <ItemDetail producto={producto} />
     </div>
   );
