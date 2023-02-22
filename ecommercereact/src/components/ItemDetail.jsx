@@ -1,4 +1,5 @@
 import React from "react";
+import ItenCount from "./ItenCount";
 
 const ItemDetail = ({ producto }) => {
   console.log("acaaaaaa", producto);
@@ -85,6 +86,7 @@ const ItemDetail = ({ producto }) => {
           </a>
         </div>
       </div>
+      <ItenCount />
     </div>
   );
 };
