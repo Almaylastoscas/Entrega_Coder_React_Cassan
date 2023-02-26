@@ -11,7 +11,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike pro",
     precio: 5200,
     img: "/img01.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike Static",
     precio: 9333,
     img: "  /img02.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike XWM",
     precio: 4587,
     img: " /img03.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike pro Ultra",
     precio: 6792,
     img: "/img04.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike Dport",
     precio: 7980,
     img: "/img05.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike pro",
     precio: 7390,
     img: "/img06.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike Sport",
     precio: 8920,
     img: "/img07.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike Sport max",
     precio: 3800,
     img: "/img08.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 9,
@@ -75,7 +75,7 @@ const initialProduct = [
     nombre: "Zapatilla Nike pro Future",
     precio: 5900,
     img: "/img09.jpg",
-    cantidad: 1,
+    stock: 5,
   },
 ];
 
@@ -88,7 +88,6 @@ const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  console.log("Yo soy", id);
 
   useEffect(() => {
     setTimeout(() => {

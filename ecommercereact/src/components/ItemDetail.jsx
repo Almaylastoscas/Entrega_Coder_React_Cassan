@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import ButtonRedirect from "./ButtonRedirect";
+
 import ItenCount from "./ItenCount";
 
 const ItemDetail = ({ producto }) => {
-  console.log("acaaaaaa", producto);
+  const [buttonActiv, setbuttonActiv] = useState(false);
+  const activarRender = () => {
+    setbuttonActiv(true);
+  };
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">
       <img
@@ -74,19 +79,17 @@ const ItemDetail = ({ producto }) => {
             5.0
           </span>
         </div>
-        <div class="flex items-center justify-between">
-          <span class="text-3xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between">
+          <span className="text-3xl font-bold text-gray-900 dark:text-white">
             $ {producto.precio}
           </span>
-          <a
-            href="/"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Add to cart
-          </a>
         </div>
       </div>
-      <ItenCount />
+      {buttonActiv === true ? (
+        <ButtonRedirect />
+      ) : (
+        <ItenCount activarRender={activarRender} stock={producto.stock} />
+      )}
     </div>
   );
 };

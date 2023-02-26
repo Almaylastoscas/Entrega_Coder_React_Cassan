@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 const initialCount = 0;
-const ItenCount = () => {
+const ItenCount = ({ activarRender, stock }) => {
   const [contador, setContador] = useState(initialCount);
+  console.log("yo soy el stock", stock);
 
   const handleAdd = () => {
-    setContador(contador + 1);
+    if (contador === stock) {
+      return;
+    } else {
+      setContador(contador + 1);
+    }
   };
   const handleRes = () => {
     setContador(contador === 0 ? initialCount : contador - 1);
@@ -34,6 +39,15 @@ const ItenCount = () => {
       >
         +
       </button>
+
+      <div>
+        <button
+          onClick={activarRender}
+          className="bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
+          Añadir al Carrito
+        </button>
+      </div>
     </div>
   );
 };
