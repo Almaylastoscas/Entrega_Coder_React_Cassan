@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import ButtonRedirect from "./ButtonRedirect";
+import { useContext } from "react";
 
 import ItenCount from "./ItenCount";
+import { custonContex } from "../contex/ContexProvider";
 
 const ItemDetail = ({ producto }) => {
   const [buttonActiv, setbuttonActiv] = useState(false);
-  const activarRender = () => {
+  const { agregarProducto } = useContext(custonContex);
+  const activarRender = (contador) => {
     setbuttonActiv(true);
+    agregarProducto(producto, contador);
   };
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">

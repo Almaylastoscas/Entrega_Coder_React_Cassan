@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ItenList from "./ItenList";
+import ItenList from "../components/ItenList";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 const initialData = [
   {

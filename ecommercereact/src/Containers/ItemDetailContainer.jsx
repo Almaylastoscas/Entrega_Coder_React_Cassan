@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import ItemDetail from "./ItemDetail";
-import Loading from "./Loading";
+import ItemDetail from "../components/ItemDetail";
+import Loading from "../components/Loading";
 
 const initialProduct = [
   {
