@@ -100,7 +100,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="content-center justify-center items-center flex bg-slate-200 h-screen">
       {loading ? loading : <Loading />}
       <ItemDetail producto={producto} />
     </div>

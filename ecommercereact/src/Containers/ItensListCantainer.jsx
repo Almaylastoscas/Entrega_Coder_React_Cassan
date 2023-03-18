@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ItenList from "../components/ItenList";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import { db } from "../firebase/firebase";
+import { getDocs, collection, query, where } from "../firebase/firestore";
 
 const initialData = [
   {
@@ -89,23 +91,25 @@ const ItensListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      promesa.then((data) => {
-        if (name) {
-          setProductos(data.filter((item) => item.categoria === name));
-        } else {
-          setProductos(data);
-        }
-        setLoading(false);
-      });
-    }, 2000);
+    const productsCollection = collection(db, "products");
+    getDocs(productsCollection).then((data) => console.log(data));
+    // setTimeout(() => {
+    //   promesa.then((data) => {
+    //     if (name) {
+    //       setProductos(data.filter((item) => item.categoria === name));
+    //     } else {
+    //       setProductos(data);
+    //     }
+    //     setLoading(false);
+    //   });
+    // }, 2000);
   }, [name]);
 
   return (
-    <>
+    <div className="h-screen">
       <h1 className="text-2xl text-white bg-neutral-800 ">{greeting}</h1>
       {loading ? <Loading /> : <ItenList productos={productos} />}
-    </>
+    </div>
   );
 };
 

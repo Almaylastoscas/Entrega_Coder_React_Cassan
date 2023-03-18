@@ -2,7 +2,6 @@ import React, { useState } from "react";
 const initialCount = 0;
 const ItenCount = ({ activarRender, stock }) => {
   const [contador, setContador] = useState(initialCount);
-  console.log("yo soy el stock", stock);
 
   const handleAdd = () => {
     if (contador === stock) {
@@ -42,7 +41,7 @@ const ItenCount = ({ activarRender, stock }) => {
 
       <div>
         <button
-          onClick={activarRender}
+          onClick={() => activarRender(contador)}
           className="bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
         >
           Añadir al Carrito

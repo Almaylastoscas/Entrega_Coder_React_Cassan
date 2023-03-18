@@ -5,10 +5,13 @@ const Item = ({ prod }) => {
   return (
     <Link to={`/producto/${prod.id}`}>
       <div className="flex justify-center  ">
-        <div className="rounded-lg shadow-lg bg-white max-w-sm hover:bg-slate-100">
-          <a href="#!">
-            <img className="rounded-t-lg" src={prod.img} alt="Foto zapatilla" />
-          </a>
+        <div className="rounded-lg shadow-lg bg-white max-w-sm hover:bg-slate-100  ">
+          <img
+            className="rounded-t-lg  "
+            src={prod.img}
+            alt="Foto zapatilla  "
+          />
+
           <div className="p-6">
             <h5 className="text-gray-900 text-xl font-medium mb-2">
               {prod.nombre}
