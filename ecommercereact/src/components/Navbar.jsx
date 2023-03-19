@@ -12,6 +12,7 @@ const Navbar = () => {
             <img
               className="hidden h-8 w-auto lg:block"
               src="./logo-almay.png"
+              alt="Zapatilla"
             />
           </Link>
           <div className="flex flex-1 items-center content-center justify-center sm:items-stretch   ">

@@ -22,7 +22,7 @@ const ItemDetail = ({ producto }) => {
         />
 
         <div className="px-5 pb-5">
-          <h2 clasNames="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
             {producto.nombre}
           </h2>
 

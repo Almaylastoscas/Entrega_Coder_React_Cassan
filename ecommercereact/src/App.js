@@ -5,6 +5,7 @@ import Carrito from "./components/Carrito";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContexProvider from "./contex/ContexProvider";
+import Formulario from "./components/Formulario";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             />
             <Route path="/producto/:id" element={<ItemDetailContainer />} />
             <Route path="/carrito" element={<Carrito />} />
+            <Route path="/formulario" element={<Formulario />} />
           </Routes>
         </ContexProvider>
       </BrowserRouter>
