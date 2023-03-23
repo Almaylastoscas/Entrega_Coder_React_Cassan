@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div className="content-center justify-center items-center flex bg-slate-200 h-screen">
+    <div className="content-center justify-center items-center flex h-screen">
       {loading ? <Loading /> : <ItemDetail producto={producto} />}
     </div>
   );

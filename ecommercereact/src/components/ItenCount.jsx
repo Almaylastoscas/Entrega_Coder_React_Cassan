@@ -19,16 +19,18 @@ const ItenCount = ({ activarRender, stock }) => {
 
   return (
     <div>
-      <div>{contador}</div>
+      <div>
+        <h1> Cantidad : {contador} </h1>
+      </div>
       <button
         onClick={handleRes}
-        className="bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        className="mx-0.5 bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         -
       </button>
       <button
         onClick={handleReset}
-        className="bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        className=" mx-0.5 my-0.5 bg-blue-700 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         Restablecer
       </button>

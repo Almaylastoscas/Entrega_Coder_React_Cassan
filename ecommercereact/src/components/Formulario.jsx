@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { custonContex } from "../contex/ContexProvider";
 import { useContext } from "react";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+  getDoc,
+  collection,
+  addDoc,
+  serverTimestamp,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 const initialState = {
   nombre: "",
   apellido: "",
+  email: "",
 };
 const Formulario = () => {
   const [cliente, setCliente] = useState(initialState);
@@ -34,7 +42,10 @@ const Formulario = () => {
       items: carrito,
       total: totalCompra(),
       time: serverTimestamp(),
-    }).then((result) => setIdCompra(result.id));
+    }).then((result) => {
+      setIdCompra(result.id);
+      descontarStock();
+    });
   };
 
   if (idCompra !== "") {
@@ -52,8 +63,17 @@ const Formulario = () => {
     });
   }
 
+  const descontarStock = () => {
+    carrito.forEach((item) => {
+      const docReference = doc(db, "products", item.id);
+      getDoc(docReference).then((dbDoc) => {
+        updateDoc(docReference, { stock: dbDoc.data().stock - item.contador });
+      });
+    });
+  };
+
   return (
-    <div className="content-center justify-center flex h-screen ">
+    <div className="content-center justify-center flex ">
       <div className="w-full max-w-xs ">
         <form
           onSubmit={handleSubmit}
@@ -90,6 +110,24 @@ const Formulario = () => {
               id="password"
               type="text"
               placeholder="Apellido"
+              onChange={handleChange}
+            ></input>
+          </div>
+
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              Email
+            </label>
+            <input
+              value={cliente.email}
+              name="email"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              placeholder="Username"
               onChange={handleChange}
             ></input>
           </div>

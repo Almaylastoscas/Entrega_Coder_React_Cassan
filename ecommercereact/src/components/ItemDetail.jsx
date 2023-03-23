@@ -14,9 +14,9 @@ const ItemDetail = ({ producto }) => {
   };
   return (
     <div className=" bg-slate-200 ">
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">
+      <div className="w-full max-w-sm bg-lime-200 hover:bg-slate-100  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">
         <img
-          className="p-8 rounded-t-lg "
+          className="rounded-full border-slate-900 border-solid"
           src={producto.img}
           alt="product imagen"
         />

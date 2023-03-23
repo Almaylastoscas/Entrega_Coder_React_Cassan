@@ -30,26 +30,11 @@ const ItensListContainer = ({ greeting }) => {
       });
       setLoading(false);
     }, 1000);
-
-    const productsCollection = collection(db, "products");
-    const q = name
-      ? query(productsCollection, where("category", "==", name))
-      : productsCollection;
-
-    getDocs(q).then((data) => {
-      const list = data.docs.map((product) => {
-        return {
-          ...product.data(),
-          id: product.id,
-        };
-      });
-      setProductos(list);
-    });
   }, [name]);
 
   return (
-    <div>
-      <h1 className="text-2xl text-white bg-neutral-800 ">{greeting}</h1>
+    <div className="bg-black ">
+      <h1 className="text-2xl text-teal-400 bg-black ">{greeting}</h1>
       {loading ? <Loading /> : <ItenList productos={productos} />}
     </div>
   );
